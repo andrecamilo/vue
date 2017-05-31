@@ -1,7 +1,26 @@
 <template>
   <div class="Formulario">
    <h1>{{titulo}}</h1> 
-   <h1>{{usuario.nome}}</h1> 
+   <h1 v-if="mostrarNome">{{usuario.nome}} {{usuario.sobrenome}}</h1> 
+   <h1 v-else>pessoa sem nome</h1>
+   
+   <br />
+   <h3>{{nomeCompleto}}</h3>
+   
+   <ul>
+        <li v-for="item in itens"> {{item.titulo}}</li>
+   </ul>
+   
+   <button v-on:click="estudar('estou estudando')">Estudar</button>
+
+   <input type="text" v-on:keyup="digitar" v-on:keyup.enter="pressionadoEnter">
+   <br />
+   <br />
+
+   <label> Nome: </label> <input type="text" v-model="usuario.nome">
+   <label> Sobrenome: </label> <input type="text" v-model="usuario.sobrenome">
+
+   
   </div>
 </template>
 
@@ -14,6 +33,28 @@ export default {
       usuario: {
         nome: 'Andre',
         sobrenome: 'Camilo'
+      },
+      mostrarNome: true,
+      itens: [
+        {titulo: 'programador'},
+        {titulo: 'pai'},
+        {titulo: 'marido'}
+      ]
+    }
+  },
+  methods: {
+    estudar: function (param) {
+      alert(param)
+    },
+    digitar: function (e) {
+      console.log(e.target.value)
+    },
+    pressionadoEnter: function () {
+      console.log('a tecla enter foi pressionada')
+    },
+    computed: {
+      nomeCompleto: function () {
+        return this.usuario.nome + ' ' + this.usuario.sobrenome
       }
     }
   }
