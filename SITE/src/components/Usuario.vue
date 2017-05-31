@@ -43,7 +43,8 @@ export default {
     }
   },
   created: function () {
-    this.$http.get('https://jsonplaceholder.typicode.com/users')
+    // this.$http.get('https://jsonplaceholder.typicode.com/users')
+    this.$http.get('http://localhost:5000/api/usuario')
     .then(function (response) {
       this.usuarios = response.data
     })
