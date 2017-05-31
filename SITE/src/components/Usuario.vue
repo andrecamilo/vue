@@ -57,6 +57,12 @@ export default {
     excluirUsuario: function (usuario) {
       this.usuarios.splice(this.usuarios.indexOf(usuario))
     }
+  },
+  created: function () {
+    this.$http.get('https://jsonplaceholder.typicode.com/users')
+    .then(function (response) {
+      console.log(response.data)
+    })
   }
 }
 </script>
