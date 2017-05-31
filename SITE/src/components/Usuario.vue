@@ -25,23 +25,7 @@ export default {
   data () {
     return {
       novoUsuario: {},
-      usuarios: [
-        {
-          nome: 'Aecio',
-          email: 'Aecio@gmail.com',
-          conectado: false
-        },
-        {
-          nome: 'lula',
-          email: 'lula@gmail.com',
-          conectado: false
-        },
-        {
-          nome: 'Dilma',
-          email: 'Dilma@gmail.com',
-          conectado: false
-        }
-      ]
+      usuarios: [ ]
     }
   },
   methods: {
@@ -61,12 +45,14 @@ export default {
   created: function () {
     this.$http.get('https://jsonplaceholder.typicode.com/users')
     .then(function (response) {
-      console.log(response.data)
+      this.usuarios = response.data
     })
   }
 }
 </script>
-  .conectado {
-      text-decoration: line-through;
-  }
-<style scoped> </style>
+  
+<style scoped>
+.conectado {
+  text-decoration: line-through;
+}
+</style>

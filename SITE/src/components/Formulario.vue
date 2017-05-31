@@ -5,7 +5,7 @@
     <h1 v-else>pessoa sem nome</h1>
    
     <br />
-    <h3>{{nomeCompleto}}</h3>
+    <h3>Endereço: {{enderecoCompleto}}</h3>
    
     <ul>
       <li v-for="item in itens"> {{item.titulo}}</li>
@@ -19,6 +19,10 @@
 
     <label> Nome: </label> <input type="text" v-model="usuario.nome">
     <label> Sobrenome: </label> <input type="text" v-model="usuario.sobrenome">
+    <br />
+    <br />
+    <label> Cidade: </label> <input type="text" v-model="usuario.cidade">
+    <label> Estado: </label> <input type="text" v-model="usuario.estado">
     <br />
     <br />
 
@@ -40,7 +44,9 @@ export default {
       titulo: 'TCE PR',
       usuario: {
         nome: 'Andre',
-        sobrenome: 'Camilo'
+        sobrenome: 'Camilo',
+        estado: 'Parana',
+        cidade: 'campo largo'
       },
       mostrarNome: true,
       itens: [
@@ -59,11 +65,11 @@ export default {
     },
     pressionadoEnter: function () {
       console.log('a tecla enter foi pressionada')
-    },
-    computed: {
-      nomeCompleto: function () {
-        return this.usuario.nome + ' ' + this.usuario.sobrenome
-      }
+    }
+  },
+  computed: {
+    enderecoCompleto: function () {
+      return this.usuario.cidade + ', ' + this.usuario.estado
     }
   }
 }

@@ -173,8 +173,7 @@
 -resource:"C:\Git\Repo\Vue\API\src\API.Web\obj\Debug\netcoreapp1.0\API.Webdotnet-compile.deps.json",API.Web.deps.json
 "C:\Git\Repo\Vue\API\src\API.Web\Program.cs"
 "C:\Git\Repo\Vue\API\src\API.Web\Startup.cs"
-"C:\Git\Repo\Vue\API\src\API.Web\Controllers\FormularioController.cs"
-"C:\Git\Repo\Vue\API\src\API.Web\Controllers\ValuesController.cs"
-"C:\Git\Repo\Vue\API\src\API.Web\Entidades\Comentario.cs"
-"C:\Git\Repo\Vue\API\src\API.Web\Entidades\Formulario.cs"
-"C:\Git\Repo\Vue\API\src\API.Web\Entidades\Tipo.cs"
+"C:\Git\Repo\Vue\API\src\API.Web\Controllers\UsuarioController.cs"
+"C:\Git\Repo\Vue\API\src\API.Web\Entidades\Empresa.cs"
+"C:\Git\Repo\Vue\API\src\API.Web\Entidades\Endereco.cs"
+"C:\Git\Repo\Vue\API\src\API.Web\Entidades\Usuario.cs"

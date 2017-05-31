@@ -2,22 +2,19 @@
   <div id="app">
     <img src="./assets/logo.png">
     <br />
-    
-    <Usuario></Usuario>
-    <!-- 
+    <!--
     <router-link v-bind:to="'/'">Formulario</router-link>
     <router-link v-bind:to="'/Informacao'">Informacao</router-link>
-    <Formulario msg="mensagem que aparece no rodape (com bind)"></Formulario>
+    <router-link v-bind:to="'/Usuario'">Usuario</router-link>    
+    <router-view></router-view>
+    <Formulario></Formulario>
+    <Informacao></Informacao>
     -->
-    
-    <!-- 
-    <router-view></router-view> 
-    -->
+    <Usuario></Usuario>
   </div>
 </template>
 
 <script>
-
 import Formulario from './components/Formulario'
 import Usuario from './components/Usuario'
 import Informacao from './components/Informacao'
@@ -25,7 +22,7 @@ import Informacao from './components/Informacao'
 export default {
   name: 'app',
   components: {
-    Usuario, Formulario, Informacao
+    Formulario, Usuario, Informacao
   }
 }
 
