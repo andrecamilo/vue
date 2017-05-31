@@ -1,12 +1,10 @@
 import Vue from 'vue'
-
 import VueRouter from 'vue-router'
-Vue.use(VueRouter)
-
 import VueResource from 'vue-resource';
-Vue.use(VueResource);
-
 import App from './App.vue'
+
+Vue.use(VueRouter)
+Vue.use(VueResource);
 
 const AllProducts = require('./assets/js/components/all-products.vue');
 const CreateProduct = require('./assets/js/components/create-product.vue');
