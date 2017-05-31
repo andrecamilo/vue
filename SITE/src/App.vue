@@ -1,7 +1,10 @@
 <template>
-  <div id="app">
+  <div id="aplicacao">
   <img src="./assets/logo.png">
-    <router-view></router-view>
+  <br />
+  <router-link v-bind:to="'/'">Formulario</router-link>
+  <router-link v-bind:to="'/Informacao'">Informacao</router-link>
+  <router-view></router-view>
   </div>
 </template>
 
@@ -9,13 +12,13 @@
 import Formulario from './components/Formulario'
 
 export default {
-  name: 'app',
+  name: 'aplicacao',
   components: {Formulario}
 }
 </script>
 
 <style>
-#app {
+#aplicacao {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

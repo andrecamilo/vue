@@ -1,26 +1,25 @@
 <template>
   <div class="Formulario">
-   <h1>{{titulo}}</h1> 
-   <h1 v-if="mostrarNome">{{usuario.nome}} {{usuario.sobrenome}}</h1> 
-   <h1 v-else>pessoa sem nome</h1>
+    <h1>{{titulo}}</h1> 
+    <h1 v-if="mostrarNome">{{usuario.nome}} {{usuario.sobrenome}}</h1> 
+    <h1 v-else>pessoa sem nome</h1>
    
-   <br />
-   <h3>{{nomeCompleto}}</h3>
+    <br />
+    <h3>{{nomeCompleto}}</h3>
    
-   <ul>
-        <li v-for="item in itens"> {{item.titulo}}</li>
-   </ul>
+    <ul>
+      <li v-for="item in itens"> {{item.titulo}}</li>
+    </ul>
    
-   <button v-on:click="estudar('estou estudando')">Estudar</button>
+    <button v-on:click="estudar('estou estudando')">Estudar</button>
 
-   <input type="text" v-on:keyup="digitar" v-on:keyup.enter="pressionadoEnter">
-   <br />
-   <br />
+    <input type="text" v-on:keyup="digitar" v-on:keyup.enter="pressionadoEnter">
+    <br />
+    <br />
 
-   <label> Nome: </label> <input type="text" v-model="usuario.nome">
-   <label> Sobrenome: </label> <input type="text" v-model="usuario.sobrenome">
+    <label> Nome: </label> <input type="text" v-model="usuario.nome">
+    <label> Sobrenome: </label> <input type="text" v-model="usuario.sobrenome">
 
-   
   </div>
 </template>
 
@@ -61,5 +60,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped> </style>
