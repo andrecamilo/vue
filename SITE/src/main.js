@@ -6,18 +6,20 @@ import router from './router'
 import VueRouter from 'vue-router'
 import Formulario from './components/Formulario'
 import Informacao from './components/Informacao'
+import Usuario from './components/Usuario'
 
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/', component: Formulario },
+  { path: '/Usuario', component: Usuario },
   { path: '/Informacao', component: Informacao }
 ]
 
 Vue.config.productionTip = false
 
 const rotas = new VueRouter({
-  routes, // short for routes: routes
+  routes,
   mode: 'history'
 })
 

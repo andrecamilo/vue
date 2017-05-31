@@ -19,13 +19,22 @@
 
     <label> Nome: </label> <input type="text" v-model="usuario.nome">
     <label> Sobrenome: </label> <input type="text" v-model="usuario.sobrenome">
+    <br />
+    <br />
 
+    <h3>{{msg}}</h3>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Formulario',
+  props: {
+    msg: {
+      type: String,
+      default: 'mensagem de rodape'
+    }
+  },
   data () {
     return {
       titulo: 'TCE PR',
