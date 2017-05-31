@@ -19,7 +19,6 @@ namespace API.Web.Controllers
             lst.Add(new Usuario("Keila"));
             lst.Add(new Usuario("Daniel"));
 
-            //Response.Headers.Add("access-control-allow-credentials", "true");
             Response.Headers.Add("Access-Control-Allow-Origin", "*");
             Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
             Response.Headers.Add("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
@@ -37,8 +36,9 @@ namespace API.Web.Controllers
 
         // POST api/usuario
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Usuario usuario)
         {
+
         }
 
         // PUT api/usuario/5

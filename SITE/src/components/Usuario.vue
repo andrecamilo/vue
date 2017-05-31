@@ -29,14 +29,15 @@ export default {
     }
   },
   methods: {
-    adicionarUsuario: function (e) {
-      console.log('add')
-      this.usuarios.push({
-        nome: this.novoUsuario.nome,
-        email: this.novoUsuario.email,
-        conectado: false}
-      )
-      e.preventDefault()
+    adicionarUsuario: function () {
+      console.log(this.novoUsuario)
+      this.$http.post('http://localhost:3000/api/usuario', this.novoUsuario, {
+        headers: [
+        { 'Content-Type': 'application/json' },
+        { 'Access-Control-Allow-Origin': '*' },
+        {'Access-Control-Allow-Headers': 'Content-Type'},
+        {'Access-Control-Allow-Methods': 'GET,PUT,PATCH,POST,DELETE'} ]
+      })
     },
     excluirUsuario: function (usuario) {
       this.usuarios.splice(this.usuarios.indexOf(usuario))
@@ -44,7 +45,7 @@ export default {
   },
   created: function () {
     // this.$http.get('https://jsonplaceholder.typicode.com/users')
-    this.$http.get('http://localhost:5000/api/usuario')
+    this.$http.get('http://localhost:3000/api/usuario')
     .then(function (response) {
       this.usuarios = response.data
     })

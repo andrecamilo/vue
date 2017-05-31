@@ -10,6 +10,7 @@ module.exports = {
     },
     module: {
         rules: [
+            { "indent": 0 },
             {
                 test: /\.vue$/,
                 loader: 'vue',
