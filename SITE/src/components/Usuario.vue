@@ -54,7 +54,7 @@ export default {
 </script>
   
 <style scoped>
-.conectado {
-  text-decoration: line-through;
-}
+  .conectado {
+    text-decoration: line-through;
+  }
 </style>
