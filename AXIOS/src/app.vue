@@ -2,7 +2,7 @@
   <div id="app">
     
     <h1>Procurar usuario</h1>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4">      
       <input class="form-control" v-model="nomeUsuario" placeholder="Digite o nome do usuario">
     </div>
     <div class="col-md-4">
@@ -41,8 +41,14 @@
           <label class="control-label"> Tipo</label>
           <input class="form-control"  type="text" v-model="usuario.type">      
         </div>
+        <div class="col-md-4">
+          <label class="control-label"> Endereço</label>
+          <input class="form-control"  type="text" v-model="usuario.location">      
+        </div>
       </div>
-      <div v-else>{{mensagemErro}}</div>
+      <div v-else  class="col-md-12">
+        <h3 class="control-label"> {{mensagemErro}}</h3>
+      </div>
     </div>
 
     <div class="form-group col-md-12" >
@@ -51,10 +57,14 @@
         <tr>
           <th>ID</th>
           <th>Nome</th>
+          <th>Tipo</th>
+          <th>Url do repositorio</th>
         </tr>
         <tr v-for="usuario in listaUsuarios">    
           <th>{{usuario.id}} </th>
           <th>{{usuario.login}}</th>
+          <th>{{usuario.type}}</th>
+          <th>{{usuario.repos_url}}</th>
         </tr>  
         </table>
       </ul>
@@ -84,7 +94,7 @@ export default {
       Vue.axios.get(api).then(response => {
         this.usuario = response.data
       }).catch(e => {
-        this.mensagemErro = 'erro ao carregar'
+        this.mensagemErro = 'Não foi possivel carregar o usuario'
         this.usuario = []
       })
     },
