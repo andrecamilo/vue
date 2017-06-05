@@ -3,27 +3,30 @@
     <form>
       <input v-model="nomeUsuario" placeholder="Digite o nome do usuario">
       <button v-on:click="procurar">Procurar</button>
+      <button v-on:click="salvarUsuario">Salvar</button>
     </form>
-    <p v-if="data.name && data.location">
-      {{data.name}} {{data.login}}
+    <p v-if="usuario.name && usuario.location">
+      {{usuario.name}} {{usuario.login}}
       é de 
-      {{data.location}}
+      {{usuario.location}}
       <br>
       <br>
       Dados do usuáro do github:
       <br>
-      ID: {{data.id}}
+      ID: <input type="text" v-model="usuario.id">      
       <br>
-      ULR: {{data.url}}
+      Nome: <input type="text" v-model="usuario.name">      
       <br>
-      BLOG: {{data.blog}}
+      ULR: <input type="text" v-model="usuario.url">      
       <br>
-      Tipo: {{data.type}}
+      BLOG: <input type="text" v-model="usuario.blog">      
+      <br>
+      Tipo: <input type="text" v-model="usuario.type">      
       <br>
       <p v-else>{{mensagemErro}}</p>
     </p>
     <ul>
-      <li v-for="usuario in usuarios">    
+      <li v-for="usuario in listaUsuarios">    
         <span>
             {{usuario.id}} {{usuario.login}}
         </span>
@@ -43,8 +46,8 @@ export default {
   data () {
     return {
       nomeUsuario: '',
-      data: [],
-      usuarios: [],
+      usuario: [],
+      listaUsuarios: [],
       mensagemErro: ''
     }
   },
@@ -52,17 +55,29 @@ export default {
     procurar () {
       const api = `https://api.github.com/users/${this.nomeUsuario}`
       Vue.axios.get(api).then(response => {
-        this.data = response.data
+        this.usuario = response.data
       }).catch(e => {
         this.mensagemErro = 'erro ao carregar'
-        this.data = []
+        this.usuario = []
+      })
+    },
+    salvarUsuario () {
+      console.log('salvar usuario ' + this.usuario)
+      const api = `https://api.github.com/users`
+      Vue.axios.post(api, {
+        body: this.usuario
+      }
+      ).then(function (response) {
+        console.log(response)
+      }).catch(function (error) {
+        console.log('Não foi possivel realizar o post' + error)
       })
     }
   },
   created: function () {
     const api = `https://api.github.com/users`
     Vue.axios.get(api).then(response => {
-      this.usuarios = response.data
+      this.listaUsuarios = response.data
     })
   }
 }
