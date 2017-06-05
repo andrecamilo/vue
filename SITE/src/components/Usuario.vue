@@ -31,7 +31,7 @@ export default {
   methods: {
     adicionarUsuario: function () {
       console.log(this.novoUsuario)
-      this.$http.post('http://localhost:3000/api/usuario', this.novoUsuario, {
+      this.$http.post('http://localhost:5000/api/usuario', this.novoUsuario, {
         headers: [
         { 'Content-Type': 'application/json' },
         { 'Access-Control-Allow-Origin': '*' },
@@ -45,7 +45,7 @@ export default {
   },
   created: function () {
     // this.$http.get('https://jsonplaceholder.typicode.com/users')
-    this.$http.get('http://localhost:3000/api/usuario')
+    this.$http.get('http://localhost:5000/api/usuario')
     .then(function (response) {
       this.usuarios = response.data
     })

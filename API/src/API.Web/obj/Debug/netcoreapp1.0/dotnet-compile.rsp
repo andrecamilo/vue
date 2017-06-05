@@ -1,5 +1,5 @@
---temp-output:C:\Git\Repo\Vue\API\src\API.Web\obj\Debug\netcoreapp1.0\
---out:C:\Git\Repo\Vue\API\src\API.Web\bin\Debug\netcoreapp1.0\API.Web.dll
+--temp-output:C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\obj\Debug\netcoreapp1.0\
+--out:C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\bin\Debug\netcoreapp1.0\API.Web.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -174,10 +174,10 @@
 --reference:C:\Users\uc06084755992\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\uc06084755992\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\uc06084755992\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Git\Repo\Vue\API\src\API.Web\obj\Debug\netcoreapp1.0\API.Webdotnet-compile.deps.json",API.Web.deps.json
-C:\Git\Repo\Vue\API\src\API.Web\Program.cs
-C:\Git\Repo\Vue\API\src\API.Web\Startup.cs
-C:\Git\Repo\Vue\API\src\API.Web\Controllers\UsuarioController.cs
-C:\Git\Repo\Vue\API\src\API.Web\Entidades\Empresa.cs
-C:\Git\Repo\Vue\API\src\API.Web\Entidades\Endereco.cs
-C:\Git\Repo\Vue\API\src\API.Web\Entidades\Usuario.cs
+--resource:"C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\obj\Debug\netcoreapp1.0\API.Webdotnet-compile.deps.json",API.Web.deps.json
+C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\Program.cs
+C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\Startup.cs
+C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\Controllers\UsuarioController.cs
+C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\Entidades\Empresa.cs
+C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\Entidades\Endereco.cs
+C:\TCEPR\Projetos\Modelo\TCEPR.ExemplosDiversos\Vue\API\src\API.Web\Entidades\Usuario.cs

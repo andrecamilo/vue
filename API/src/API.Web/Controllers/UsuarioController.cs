@@ -3,6 +3,7 @@ using API.Web.Entidades;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net;
+using System.Linq;
 using System.Text;
 
 namespace API.Web.Controllers
@@ -10,28 +11,55 @@ namespace API.Web.Controllers
     [Route("api/[controller]")]
     public class UsuarioController : Controller
     {
+        private List<Usuario> _lst;
+        private List<Usuario> lst
+        {
+            get
+            {
+                _lst = new List<Usuario>();
+
+                _lst.Add(new Usuario("Andre", "Camilo"));
+                _lst.Add(new Usuario("Keila", "Ferreira"));
+                _lst.Add(new Usuario("Daniel", "Camilo"));
+
+                return _lst;
+            }
+        }
+
+
+
         // GET api/usuario
         [HttpGet]
         public JsonResult Get()
         {
-            var lst = new List<Usuario>();
-            lst.Add(new Usuario("Andre"));
-            lst.Add(new Usuario("Keila"));
-            lst.Add(new Usuario("Daniel"));
-
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
-            Response.Headers.Add("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
-            Response.Headers.Add("Cache-Control", "no-cache");
+            AddHeader();
 
             return Json(lst);
         }
 
-        // GET api/usuario/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        private void AddHeader()
         {
-            return "value";
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
+            Response.Headers.Add("Cache-Control", "no-cache");
+        }
+
+        // GET api/usuario/xxx
+        [HttpGet("{nome}")]
+        public string Get(string nome)
+        {
+            AddHeader();
+
+            var lstUsuario = lst.Where(p => p.nome.Contains(nome));
+            try
+            {
+                return lstUsuario.FirstOrDefault().nome + ' '+ lstUsuario.FirstOrDefault().sobrenome;
+            }
+            catch
+            {
+                return "Sem resultado";
+            }
         }
 
         // POST api/usuario
