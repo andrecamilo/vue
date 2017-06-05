@@ -11,9 +11,8 @@
       <li v-for="item in itens"> {{item.titulo}}</li>
     </ul>
    
-    <button v-on:click="estudar('estou estudando')">Estudar</button>
-
     <input type="text" v-on:keyup="digitar" v-on:keyup.enter="pressionadoEnter">
+    <button v-on:click="estudar('estou estudando')">Estudar</button>
     <br />
     <br />
 

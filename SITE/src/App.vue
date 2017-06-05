@@ -10,7 +10,7 @@
     <Formulario></Formulario>
     <Informacao></Informacao>
     -->
-    <Usuario></Usuario>
+    <Formulario></Formulario>
   </div>
 </template>
 
