@@ -1,37 +1,64 @@
 <template>
   <div id="app">
-    <form>
-      <input v-model="nomeUsuario" placeholder="Digite o nome do usuario">
-      <button v-on:click="procurar">Procurar</button>
-      <button v-on:click="salvarUsuario">Salvar</button>
-    </form>
-    <p v-if="usuario.name && usuario.location">
-      {{usuario.name}} {{usuario.login}}
-      é de 
-      {{usuario.location}}
-      <br>
-      <br>
-      Dados do usuáro do github:
-      <br>
-      ID: <input type="text" v-model="usuario.id">      
-      <br>
-      Nome: <input type="text" v-model="usuario.name">      
-      <br>
-      ULR: <input type="text" v-model="usuario.url">      
-      <br>
-      BLOG: <input type="text" v-model="usuario.blog">      
-      <br>
-      Tipo: <input type="text" v-model="usuario.type">      
-      <br>
-      <p v-else>{{mensagemErro}}</p>
-    </p>
-    <ul>
-      <li v-for="usuario in listaUsuarios">    
-        <span>
-            {{usuario.id}} {{usuario.login}}
-        </span>
-      </li>
-    </ul>
+    
+    <h1>Procurar usuario</h1>
+    <div class="form-group col-md-4">
+      <input class="form-control" v-model="nomeUsuario" placeholder="Digite o nome do usuario">
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-primary btn-block" v-on:click="procurarUsuario">Procurar</button>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-primary btn-block" v-on:click="salvarUsuario">Salvar</button>
+    </div>
+
+    <div class="form-group">
+      <div v-if="usuario.name && usuario.location">
+        <div class="col-md-12">
+          <h3> {{usuario.name}} {{usuario.login}} é de {{usuario.location}} </h3> 
+        </div>
+        <br>
+        <div class="col-md-12">
+          <h1> Dados do usuário </h1> 
+        </div>
+        <div class="col-md-4">
+          <label class="control-label"> ID</label>
+          <input class="form-control" type="text" v-model="usuario.id">      
+        </div>
+        <div class="col-md-4">
+          <label class="control-label"> Nome</label>
+          <input class="form-control" type="text" v-model="usuario.name">      
+        </div>
+        <div class="col-md-4">
+          <label class="control-label"> Url</label>
+          <input class="form-control" type="text" v-model="usuario.url">      
+        </div>
+        <div class="col-md-4">
+          <label class="control-label"> Blog</label>
+          <input class="form-control" type="text" v-model="usuario.blog">      
+        </div>
+        <div class="col-md-4">
+          <label class="control-label"> Tipo</label>
+          <input class="form-control"  type="text" v-model="usuario.type">      
+        </div>
+      </div>
+      <div v-else>{{mensagemErro}}</div>
+    </div>
+
+    <div class="form-group col-md-12" >
+    <br/>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+        </tr>
+        <tr v-for="usuario in listaUsuarios">    
+          <th>{{usuario.id}} </th>
+          <th>{{usuario.login}}</th>
+        </tr>  
+        </table>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -52,7 +79,7 @@ export default {
     }
   },
   methods: {
-    procurar () {
+    procurarUsuario () {
       const api = `https://api.github.com/users/${this.nomeUsuario}`
       Vue.axios.get(api).then(response => {
         this.usuario = response.data
@@ -93,4 +120,21 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 </style>
